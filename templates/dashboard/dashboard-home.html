@@ -1,0 +1,8 @@
+{% extends 'dashboard/dashboard-main.html' %} {% load static %} {% block content %}
+<script>
+  document.title = "NSSGLAU | Dashboard";
+</script>
+<div class="greeting">
+  <h3>Hi {{user.first_name}}</h3>
+</div>
+{% endblock %}

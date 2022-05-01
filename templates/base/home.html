@@ -1,0 +1,197 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block homepage %}
+<script>
+  document.title = "NSS | GLA University";
+</script>
+<section class="slideshow">
+  <!--image slider start-->
+  <div id="slider">
+    <figure>
+      <img src="{% static '/img/sliding-img/desk1.jpg' %}" alt="img-1" srcset="" />
+      <img src="{% static '/img/sliding-img/desk2.jpg' %}" alt="img-2" srcset="" />
+      <img src="{% static '/img/sliding-img/desk3.jpg' %}" alt="img-3" srcset="" />
+      <img src="{% static '/img/sliding-img/desk4.jpg' %}" alt="img-4" srcset="" />
+      <img src="{% static '/img/sliding-img/desk1.jpg' %}" alt="img-5" srcset="" />
+    </figure>
+  </div>
+
+  <div id="description">
+    <div id="description-heading">
+      <h1>NSS GLA University</h1>
+    </div>
+    <div id="detailed-text">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab laboriosam
+        praesentium corrupti! Quasi explicabo recusandae sit earum, alias vero
+        ex voluptates officiis aliquid reprehenderit assumenda accusamus fugit
+        ab quidem harum!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- projects wrapper starts here -->
+<section id="project">
+  <div class="project-heading">
+    <h3>Social Projects</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque culpa sequi enim quidem facilis, tempore vel
+      repellendus, aut modi perferendis facere asperiores blanditiis vitae amet rerum eaque dignissimos quo quae?</p>
+  </div>
+  <div class="project-container">
+    {% for i in posts %}
+    <div class="project-box">
+      <div class="project-img">
+        <img src="uploads/{{i.thumbnail}}" alt="project image.">
+      </div>
+      <div class="project-text">
+        <a href="{{i.link}}" class="project-title">{{i.post_title}}</a>
+        <p>{{i.description}}</p>
+        <a href="{{i.link}}">read more</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<!-- Projects wrapper ends here -->
+
+<!-- Impact created section -->
+<section class="impact">
+  <div class="impact-container">
+    <h1>Impact Created</h1>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente debitis
+      tenetur, rerum voluptates doloremque iure harum! Molestias suscipit
+      quisquam repellat eos! Reiciendis repudiandae doloremque tempore aut
+      magnam! Sapient <br><a href="#">Read More</a>
+    </p>
+  </div>
+</section>
+<!-- Impact created ends section -->
+
+<!-- Events showcasing here -->
+<section class="events">
+  <div class="event-wrapper">
+    <h1>Our Events</h1>
+  </div>
+  <div class="container">
+    {% for i in events %}
+    <div class="item-container">
+      <div class="img-container">
+        <img src="uploads/{{i.thumbnail}}" alt="Event image">
+      </div>
+
+      <div class="body-container">
+        <div class="overlay"></div>
+
+        <div class="event-info">
+          <p class="title">{{i.event_title}}</p>
+          <div class="separator"></div>
+          <p class="info">GLA University, Mathura</p>
+          <p class="price">Register Here</p>
+
+          <div class="additional-info">
+            <!-- <p class="info">
+              <i class="fas fa-map-marker-alt"></i>
+              Grand Central Terminal
+            </p> -->
+            <p class="info">
+              <i class="far fa-calendar-alt"></i>
+              {{i.date_of_event}}
+            </p>
+
+            <p class="info description">
+              {{i.description}} <br><span>more...</span>
+            </p>
+          </div>
+        </div>
+        <button class="action">Know More</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<!-- Event showcasing ends here -->
+
+<!-- Blogs wrapper starts here -->
+<section id="blog">
+  <div class="blog-heading">
+    <span>Recent post</span>
+    <h3>Our Blogs</h3>
+  </div>
+  <div class="blog-container">
+    {% for i in blogs %}
+    <div class="blog-box">
+      <div class="blog-img">
+        <img src="uploads/{{i.thumbnail}}" alt="blog image 1.">
+      </div>
+      <div class="blog-text">
+        <span>{{i.date_published}} / {{i.author}} </span>
+        <a href="{{i.link}}" class="blog-title">{{i.blog_title}}</a>
+        <p>{{i.description}}</p>
+        <a href="{{i.link}}">read more</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<!-- Blogs wrapper ends here -->
+
+<!-- id card section -->
+<section class="id-card">
+  <div class="signup">
+    <h1>Get Yourself Acknowledge</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi beatae molestiae architecto excepturi nihil.
+      Provident officia praesentium harum beatae, quam suscipit hic optio pariatur repellendus, perferendis nisi minima
+      ullam.</p>
+  </div>
+  <button id="signup-btn" type="button" class="btn btn-primary btn-lg">Student Signup</button>
+  <script>
+    document.getElementById("signup-btn").onclick = function () {
+      window.location = ("{% url 'userInput' %}");
+    }
+  </script>
+</section>
+
+<!-- contact form section starts here -->
+<section class="contact-section">
+  <div class="contact-wrapper">
+    <div class="contact-left">
+      <h1 id="get-in-touch">Having Doubts?</h1>
+      <p>Feel free to ask us!</p>
+    </div>
+    <div class="contact-right">
+      <form action="" method="post" id="contact-form">
+        {% csrf_token %}
+        <label>Name</label>
+        <input required class="input-field" type="text" name="name" placeholder="Enter your Full Name here." />
+
+        <label>Subject</label>
+        <input required class="input-field" type="text" name="subject" placeholder="Issue regarding." />
+
+        <label>Email</label>
+        <input required class="input-field" type="text" name="email" placeholder="Please tell us how to reach you." />
+
+        <label>Message</label>
+        <textarea required class="input-field" name="message" placeholder="Feel free to say your words."></textarea>
+
+        <input id="submit-btn" type="submit" value="Send" />
+      </form>
+    </div>
+  </div>
+</section>
+
+{% if error == "no" %}
+<script>
+  alert("Your Query Accepted Successfully, We'll reach you as soon as possible!");
+  window.location = ("{% url 'home' %}");
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Something went wrong,Try Again');
+  window.location = ("{% url 'home' %}");
+</script>
+{% endif %}
+{% endblock homepage %}

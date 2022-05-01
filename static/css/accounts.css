@@ -1,0 +1,47 @@
+.login-section{
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.login-form-container> form{
+    display: grid;
+    width: 400px;
+}
+
+.login-form-container> form> label{
+    padding-top: 20px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+}
+
+.login-form-container> form> input, select {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid var(--navbarColor);
+    font-size: 14px;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+  }
+#submit-login-btn{
+    width: 100%;
+    margin-top: 15px;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+@media screen and (max-width: 1200px) {
+    .registration{
+        width: 95%;
+    }
+}
+@media screen and (max-width: 900px) {
+}

@@ -1,0 +1,72 @@
+{% extends 'main.html' %} {% load static %} {% block dashboard %}
+<script>
+  document.title = "NSSGLAU | Dashboard";
+</script>
+
+<section class="dashboard-container">
+  <div class="menu">
+    <div class="items">
+      <li>
+        <i class="fas fa-chart-pie"></i
+        ><a href="{% url 'dashboard-home' %}">Dashboard</a>
+      </li>
+      <li>
+        <i class="fas fa-file"></i
+        ><a href="{% url 'dashboard-application-request' %}"
+          >Applicant Request</a
+        >
+      </li>
+      <li><i class="fas fa-chart-pie"></i><a href="#">Tables</a></li>
+      <li><i class="fas fa-chart-pie"></i><a href="#">Forms</a></li>
+      <li><i class="fas fa-chart-pie"></i><a href="#">Cards</a></li>
+      <li><i class="fas fa-chart-pie"></i><a href="#">Modal</a></li>
+      <li><i class="fas fa-chart-pie"></i><a href="#">Blank</a></li>
+    </div>
+  </div>
+
+  <div class="interface">
+    <div class="navigation">
+      <div class="n1">
+        <div>
+          <i id="menu-btn" class="fas fa-bars"></i>
+        </div>
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input type="text" name="search-query" id="" placeholder="Search" />
+        </div>
+      </div>
+
+      <div class="profile">
+        <i class="far fa-bell"></i>
+        <img
+          class="rounded-circle"
+          src="{{user.profile_picture.url}}"
+          alt="profile"
+          srcset=""
+        />
+      </div>
+    </div>
+    {% block content %} {% endblock %}
+ </div>
+
+  <script>
+    $("#menu-btn").click(function () {
+      $(".menu").toggleClass("active");
+    });
+  </script>
+</section>
+
+<script type="text/javascript">
+  const currentLocation = location.href;
+  console.log("currentLocation: " + currentLocation);
+  const menuItemsA = document.querySelectorAll(".items> li> a");
+  const menuItemsLi = document.querySelectorAll(".items> li");
+  const menuLength = menuItemsA.length;
+  for (let i = 0; i < menuLength; i++) {
+    if (menuItemsA[i].href == currentLocation) {
+      menuItemsLi[i].className = "active";
+    }
+  }
+</script>
+
+{% endblock %}

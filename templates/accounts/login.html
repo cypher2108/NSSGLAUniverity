@@ -1,0 +1,31 @@
+{% extends 'main.html' %} {% load static %} {% block login %}
+<script>
+  document.title = "NSSGLAU | Login";
+</script>
+<section class="login-section">
+  <h1>Login</h1>
+  <div class="login-form-container">
+    <form action="" method="post">
+      {% csrf_token %}
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" />
+
+      <input class="btn btn-primary" type="submit" id="submit-login-btn" value="Submit"/>
+    </form>
+  </div>
+  {% if error == "no" %}
+  <script>
+    alert("Login Successful");
+    window.location = "{% url 'home' %}";
+  </script>
+  {% endif %} {% if error == "yes" %}
+  <script>
+    alert("Something went wrong,Try Again");
+    window.location = "{% url 'home' %}";
+  </script>
+  {% endif %}
+</section>
+{% endblock %}
