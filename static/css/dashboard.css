@@ -1,179 +1,184 @@
-.dashboard-container{
-    background: #eaeaea;
-    position: relative;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+.dashboard-container {
+  background: #eaeaea;
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-.menu{
-    background-color: #50514F;
-    width: 300px;
-    height: 100%;
+.menu {
+  background-color: #50514f;
+  width: 300px;
+  
 }
 
-.menu> .logo{
-    display: flex;
-    align-items: center;
-    color: #fff;
-    padding: 30px 40px 0px 0px;
+.menu > .logo {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 30px 40px 0px 0px;
 }
 
-.menu> .logo> h2{
-    color: #fff;
+.menu > .logo > h2 {
+  color: #fff;
 }
 
-
-
-.menu> .logo> img{
-    width: 40px;
-    margin-right: 15px;
+.menu > .logo > img {
+  width: 40px;
+  margin-right: 15px;
 }
 
-.menu> .items> li{
-    list-style: none;
-    padding: 15px 0;
-    transition: 0.3s ease;
+.menu > .items > li {
+  list-style: none;
+  padding: 15px 0;
+  transition: 0.3s ease;
 }
 
-.menu> .items> li:hover{
-    background: #CBD4C2;
-    cursor: pointer;
+.menu > .items > li:hover {
+  background: #cbd4c2;
+  cursor: pointer;
 }
 
 /* .menu> .items> li:nth-child(1){
     border-left: 4px solid #fff;
 } */
 
-.menu> .items> li.active{
-    border-left: 4px solid #fff;
+.menu > .items > li.active {
+  border-left: 4px solid #fff;
 }
 
-.menu> .items> li> i{
-    color: rgb(134, 141, 151);
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    font-size: 22px;
-    margin: 0 10px 0 25px;
+.menu > .items > li > i {
+  color: rgb(134, 141, 151);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 22px;
+  margin: 0 10px 0 25px;
 }
 
-.menu> .items> li:hover > i,
-.items> li:hover > a{
-    color: #F3F4F6;
+.menu > .items > li:hover > i,
+.items > li:hover > a {
+  color: #f3f4f6;
 }
 
-.menu> .items> li> a{
-    text-decoration: none;
-    color: #FFFCFF;
-    font-weight: 300;
+.menu > .items > li > a {
+  text-decoration: none;
+  color: #fffcff;
+  font-weight: 300;
+  transition: 0.3s ease;
+}
+
+.interface {
+  width: calc(100% - 300px);
+  height: auto;
+}
+
+.interface > .navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15px 30px;
+  border-bottom: 3px solid #594ef7;
+}
+
+.interface > .navigation > .n1 > .search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+.interface > .navigation > .n1 > .search > i {
+  margin-right: 14px;
+  font-size: 22px;
+  color: black;
+}
+
+.interface > .navigation > .n1 > .search > input {
+  border: none;
+  outline: none;
+  background: #fff;
+  color: black;
+  font-size: 18px;
+}
+
+.interface > .navigation > .profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.interface > .navigation > .profile > i {
+  margin-right: 20px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #24292e;
+}
+
+.interface > .navigation > .profile > img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 3px solid #24292e;
+}
+
+.greeting > h3 {
+  color: #444a53;
+  padding: 30px 30px 0 30px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.n1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#menu-btn {
+  color: #2b2b2b;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 20px;
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .menu {
+    width: 270px;
+    position: fixed;
+    left: -270px;
     transition: 0.3s ease;
+  }
+  .menu.active {
+    left: 0px;
+  }
+  #menu-btn {
+    display: initial;
+  }
+  .interface {
+    width: 100%;
+    margin-left: 0px;
+    display: inline-block;
+  }
+
+  .menu.active ~ .interface {
+    width: calc(100% - 270px);
+    margin-left: 270px;
+    transition: 0.3s ease;
+  }
+
+  .interface > .navigation {
+    width: 100%;
+  }
 }
 
-.interface{
-    width: calc(100% - 300px);
-}
-
-.interface> .navigation{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-    padding: 15px 30px;
-    border-bottom: 3px solid #594ef7;
-}
-
-.interface> .navigation> .n1> .search{
-    display: flex;
-    justify-content:flex-start;
-    align-items: center;
-    padding: 10px 14px;
-    border: 1px solid black;
-    border-radius: 25px;
-}
-.interface> .navigation> .n1> .search> i{
-    margin-right: 14px;
-    font-size: 22px;
-    color: black;
-}
-
-.interface> .navigation> .n1> .search> input{
-    border: none;
-    outline: none;
-    background: #fff;
-    color: black;
-    font-size: 18px;
-}
-
-.interface> .navigation> .profile{
-    display: flex;
-    justify-content:flex-start;
-    align-items: center;
-}
-
-.interface> .navigation> .profile> i{
-    margin-right: 20px;
-    font-size: 24px;
-    font-weight: 400;
-    color: #24292e;
-}
-
-.interface> .navigation> .profile> img{
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border: 3px solid #24292e;
-}
-
-.greeting> h3{
-    color: #444a53;
-    padding: 30px 30px 0 30px;
-    font-size: 32px;
-    font-weight: 700;
-}
-
-.n1{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-#menu-btn{
-    color: #2b2b2b;
-    font-size: 20px;
-    cursor: pointer;
-    margin-right: 20px;
+@media screen and (max-width: 500px) {
+  .interface > .navigation > .n1 > .search {
     display: none;
-}
-
-@media(max-width: 769px){
-    .menu{
-        width: 270px;
-        position: fixed;
-        left: -270px;
-        transition: 0.3s ease;
-    }
-    .menu.active{
-        left: 0px;
-    }
-    #menu-btn{
-        display: initial;
-    }
-    .interface{
-        width: 100%;
-        margin-left: 0px;
-        display: inline-block;
-    }
-
-    .menu.active~.interface{
-        width: calc(100% - 270px);
-        margin-left: 270px;
-        transition: 0.3s ease;
-    }
-
-    .interface> .navigation{
-        width: 100%;
-    }
+  }
 }

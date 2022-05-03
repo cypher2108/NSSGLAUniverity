@@ -38,7 +38,8 @@ def user_input(request):
             Applicant.objects.create(first_name=first_name, last_name=last_name,
                                      phone=phone, email=email, designation=designation, profile_picture=file_object)
             error = 'no'
-        except:
+        except Exception as e:
+            print(e)
             error = 'yes'
     x = {'error': error}
     return render(request, 'base/userInputForm.html', x)
