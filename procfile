@@ -1,0 +1,1 @@
+web: gunicorn NSSGLAUniversity.wsgi --log-file -
